@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Index | Deferred Tutorial</title>
+    <meta charset="utf-8" />
+    <link href="./app.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!--<pre data-bind="text:ko.toJSON($data,null,2), click: function() { hidePre(true); }, visible: !hidePre()" style="color:red"></pre>-->
+    
+    <div id="objectStringsContainer">
+        <div id="defObjectString">
+            <label>Deferred Object Properties</label>
+            <pre data-bind="text: deferredObjectString"></pre>
+        </div>
+
+        <div id="defObjectPromiseString">
+            <label>Deferred Object Promise Properties</label>
+            <pre data-bind="text: deferredObjectPromiseString"></pre>
+        </div>
+    </div>
+    
+    <div id="indexContainer">
+        <div data-bind="text: deferredObjectStateString, style: { backgroundColor: deferredObjectIsRejected() ? 'red' : deferredObjectIsResolved() ? 'green' : 'yellow' }, click: createNewDeferred"></div>
+
+        <button type="button" data-bind="click: resolveDeferredObject">Resolve Deferred</button>
+        <button type="button" data-bind="click: rejectDeferredObject">Reject Deferred</button>
+        <button type="button" data-bind="click: notifyDeferredObject">Notify Deferred</button>
+
+        <label for="alwaysHandlerType">Always</label><input id="alwaysHandlerType" type="checkbox" name="handlerTypes" value="always" data-bind="checked: handlerTypes" />
+        <label for="doneHandlerType">Done</label><input id="doneHandlerType" type="checkbox" name="handlerTypes" value="done" data-bind="checked: handlerTypes" />
+        <label for="failHandlerType">Fail</label><input id="failHandlerType" type="checkbox" name="handlerTypes" value="fail" data-bind="checked: handlerTypes" />
+        <label for="progressHandlerType">Progress</label><input id="progressHandlerType" type="checkbox" name="handlerTypes" value="progress" data-bind="checked: handlerTypes" />
+        <button type="button" data-bind="click: addHandlers">Add Handlers</button>
+
+        <ul data-bind="foreach: handlerMessages">
+            <li data-bind="text: $data"></li>
+        </ul>
+    </div>
+        <footer>
+            <a href="when.html">$.when</a>
+        </footer>
+
+    <script type="text/javascript" src="./jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="./knockout-3.2.0.js"></script>
+
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>

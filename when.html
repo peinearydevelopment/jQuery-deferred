@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>$.when | Deferred Tutorial</title>
+    <meta charset="utf-8"></meta>
+    <link href="./app.min.css" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+        <div data-bind="text: deferredCount"></div>
+        <label for="allowRejectCheckbox">Allow Deferred Rejection</label><input id="allowRejectCheckbox" type="checkbox" value="always" data-bind="checked: options().allowReject" />
+        <label for="allowDelayResolveCheckbox">Allow Deferred Notifications</label><input id="allowDelayResolveCheckbox" type="checkbox" value="done" data-bind="checked: options().allowDelayResolve" />
+
+        <button type="button" data-bind="click: addDeferred">Add Deferred Object</button>
+        <button type="button" data-bind="click: callWhen">Invoke $.when with added Deferreds</button>
+        <!--<button type="button" data-bind="click: callResolveRemaining, visible: !allDeferredsFailedResolved">Resolve remaining deferreds</button>-->
+        <button type="button" data-bind="click: callResolveRemaining">Resolve remaining deferreds</button>
+        <button type="button" data-bind="click: clear">Clear</button>
+    
+        <ul data-bind="foreach: messages">
+            <li data-bind="text: $data"></li>
+        </ul>
+
+        <footer>
+            <a href="index.html">$.Deferred</a>
+            <a href="then.html">$.then</a>
+        </footer>
+    
+        <script type="text/javascript" src="./jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="./knockout-3.2.0.js"></script>
+
+        <script type="text/javascript" src="./when.js"></script>
+    </body>
+</html>
